@@ -7,8 +7,8 @@ import coil.size.Scale
 
 @BindingAdapter("imageUrl")
 fun ImageView.imageUrl(url: String?) {
-    load(url){
-        crossfade(true)
-        scale(Scale.FILL)
-    }
+  load(url) {
+    crossfade(true)
+    scale(Scale.FILL)
+  }
 }
