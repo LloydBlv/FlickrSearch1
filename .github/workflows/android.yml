@@ -30,8 +30,12 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
 
-    - name: Build debug with Gradle
-      run: ./gradlew :app:buildDebug
+    - name: Build with Gradle
+      run: |
+        mkdir -p ~/.gradle
+        touch ~/.gradle/gradle.properties
+        ./gradlew bootstrap
+        ./gradlew spotlessCheck :app:assembleDebug test :app:lintRelease
 
     - name: Upload build outputs
       if: always()

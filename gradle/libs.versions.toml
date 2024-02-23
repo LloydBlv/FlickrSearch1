@@ -1,6 +1,6 @@
 [versions]
 accompanist = "0.35.0-alpha"
-agp = "8.4.0-alpha11"
+agp = "8.4.0-alpha10"
 androidTools = "31.2.2"
 androidDesugarJdkLibs = "2.0.4"
 androidx-activity = "1.9.0-alpha03"
