@@ -2,7 +2,7 @@
 # 📸 FlickrSearch
 [![Android CI](https://github.com/LloydBlv/FlickrSearch/actions/workflows/android.yml/badge.svg)](https://github.com/LloydBlv/FlickrSearch/actions/workflows/android.yml)
 
-This is a sample app using Flickr API and Jetpack components (LiveData, ViewModel, ...). 
+This is a sample app using Flickr API and Jetpack components (LiveData, ViewModel, ...).
 
 The purpose of this app is to try new Android technologies and learn how it works and how it can be used in an app.
 

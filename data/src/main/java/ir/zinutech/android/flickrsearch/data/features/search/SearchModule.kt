@@ -27,7 +27,6 @@ abstract class SearchModule {
     abstract fun providePhotoUrlMapper(photoUrlMapper: FlickrPhotoUrlMapper): Mapper<FlickrPhotoDto, PhotoUrl>
 
     companion object {
-        @JvmStatic
         @Provides
         @Singleton
         fun provideSearchApi(retrofit: Retrofit): SearchApi {

@@ -20,6 +20,7 @@
             android:layout_height="96dp"
             app:imageUrl="@{photo.url}"
             android:scaleType="centerCrop"
+            android:contentDescription="@string/search_result_image"
             tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
