@@ -7,15 +7,14 @@ import okhttp3.Response
 
 class FlickrInterceptor(private val apiKey: String) : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response = chain.run {
-        val originalHttpUrl: HttpUrl = chain.request().url()
+        val originalHttpUrl: HttpUrl = chain.request().url
         val url = originalHttpUrl.newBuilder()
                 .addQueryParameter(QUERY_PARAM_API_KEY, apiKey)
                 .addQueryParameter(QUERY_PARAM_API_FORMAT, JSON_FORMAT)
                 .addQueryParameter(QUERY_PARAM_NO_JSON_CALLBACK, NO_JSON)
                 .build()
 
-        proceed(request().newBuilder().url(url).build()
-        )
+        proceed(request().newBuilder().url(url).build())
     }
 
     companion object {

@@ -1,15 +1,11 @@
 plugins {
-    id("kotlin")
-    kotlin("kapt")
+    alias(libs.plugins.flickersearch.jvm.library)
+    alias(libs.plugins.ksp)
 }
 
 
 dependencies {
-    /*Kotlin*/
-    implementation(Dependencies.Kotlin.stdlib)
-    implementation(Dependencies.Kotlin.coroutinesCore)
-
-    /*Dagger*/
-    implementation(Dependencies.Dagger.dagger)
-    kapt(Dependencies.Dagger.compiler)
+    implementation(libs.kotlin.coroutines)
+    implementation(libs.dagger.runtime)
+    ksp(libs.dagger.apt.compiler)
 }

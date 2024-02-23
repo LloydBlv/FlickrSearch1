@@ -1,47 +1,32 @@
+
 plugins {
-    id("com.android.library")
-    kotlin("android")
-    kotlin("kapt")
+    alias(libs.plugins.flickersearch.android.library)
+    alias(libs.plugins.flickersearch.hilt)
+    alias(libs.plugins.ksp)
 }
 
 android {
-    compileSdkVersion(Config.compileSdkVersion)
-    buildToolsVersion(Config.buildToolsVersion)
+    namespace = "ir.zinutech.android.flickrsearch.data"
+    compileSdk = 34
 
-    defaultConfig {
-        minSdkVersion(Config.minSdkVersion)
-        targetSdkVersion(Config.targetSdkVersion)
-        versionCode = Config.versionCode
-        versionName = Config.versionName
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
+    defaultConfig { minSdk = 21 }
 }
 
 dependencies {
-    implementation(project(":domain"))
-    implementation(project(":core"))
+    implementation(projects.domain)
+    implementation(projects.core)
 
-    /*Dagger*/
-    implementation(Dependencies.Dagger.dagger)
-    implementation(Dependencies.Dagger.Hilt.android)
-    kapt(Dependencies.Dagger.Hilt.compiler)
 
     /*Retrofit*/
-    api(Dependencies.Retrofit.retrofit)
-    implementation(Dependencies.Retrofit.moshiConverter)
+    api(libs.retrofit.core)
+    implementation(libs.retrofit.moshi)
 
     /*Moshi*/
-    api(Dependencies.Moshi.moshi)
-    implementation(Dependencies.Moshi.lazyAdapter)
-    kapt(Dependencies.Moshi.codgen)
+    api(libs.moshi.core)
+    implementation(libs.misc.moshiLazyAdapters)
+    ksp(libs.moshi.kotlin.codegen)
 
     /*Chucker*/
-    debugImplementation(Dependencies.Misc.chuckerDebug)
-    releaseImplementation(Dependencies.Misc.chuckerRelease)
+    releaseImplementation(libs.chucker.noop)
+    debugImplementation(libs.chucker.library)
 }

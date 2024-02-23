@@ -1,9 +1,8 @@
 plugins {
-    id("kotlin")
+    alias(libs.plugins.kotlin.jvm)
 }
 
 
 dependencies {
-    implementation(Dependencies.Kotlin.stdlib)
-    implementation(Dependencies.Dagger.dagger)
+    api(libs.javaxInject)
 }
